@@ -26,7 +26,7 @@ public class TestCustomers {
 			session.beginTransaction();
 			
 			//Create Customer object
-			Customer customer = new Customer("Loyda", "Ortega", "Miami, FL");
+			Customer customer = new Customer("Leny", "Cruz", "Orlando, FL");
 			
 		//Execute transaction
 			session.save(customer);
@@ -56,11 +56,11 @@ public class TestCustomers {
 			//Select all customers
 			 showAllCustomer(session);
 			
-			//Select all customers named Hector who lives in Tampa, FL
+			//Select all customers named Hectico who lives in Tampa, FL
 			@SuppressWarnings("unchecked")
 			List<Customer> customers = session
 							.createQuery("FROM Customer cl "
-									+ "WHERE cl.first_name='Hector' "
+									+ "WHERE cl.first_name='Hectico' "
 									+ "AND cl.address='Tampa, FL'")
 								.getResultList();
 			System.out.println("Show all customers named Hector who lives in Tampa, FL");
@@ -71,10 +71,11 @@ public class TestCustomers {
 		//Update
 			
 			//Way 1:
-			insertedCustomer.setFirts_name("Loydita");
+			insertedCustomer = customers.get(0);
+			insertedCustomer.setFirts_name("Hector");
 			
 			//Way 2:
-			session.createQuery("UPDATE Customer set first_name='Hectico' WHERE first_name LIKE 'H%'").executeUpdate();
+			session.createQuery("UPDATE Customer SET first_name='Loydita' WHERE first_name LIKE 'L%'").executeUpdate();
 			
 		//Delete
 			session.createQuery("DELETE Customer WHERE address LIKE 'Miami%'").executeUpdate();

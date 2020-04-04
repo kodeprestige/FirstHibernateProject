@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="customer")
+@Table
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_customer")
+	@Column
 	private int id_customer;
 	
-	@Column(name="first_name")
+	@Column
 	private String first_name;
 	
-	@Column(name="last_name")
+	@Column
 	private String last_name;
 	
-	@Column(name="address")
+	@Column
 	private String address;
 
 	

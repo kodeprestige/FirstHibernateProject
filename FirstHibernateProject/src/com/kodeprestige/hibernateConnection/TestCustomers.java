@@ -21,16 +21,29 @@ public class TestCustomers {
 		//Create Customers object
 		try {
 			
-			Customers customer = new Customers("Hector", "Ortega", "Holland, MI");
+			Customers customer = new Customers("elaitch", "prestige", "Miami, FL");
 			
 			//Execute transaction
 			session.beginTransaction();
-			
 			session.save(customer);
-			
 			session.getTransaction().commit();
 			
 			System.out.println("Customer    " + customer + "   inserted.");
+			
+			
+			//Read register
+			session.beginTransaction();
+			int id_custumer = customer.getId_custumer();
+			
+			System.out.println("id_custumer: "+ id_custumer);
+			
+			Customers insertedCustomer = session.get(Customers.class, id_custumer);
+			
+			System.out.println("Inserted Customer:" + insertedCustomer);
+			
+			session.getTransaction().commit();
+			
+			System.out.println("Done...");
 			
 			
 			
